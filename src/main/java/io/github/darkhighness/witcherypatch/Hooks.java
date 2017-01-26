@@ -165,10 +165,13 @@ public class Hooks
 								AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(spell.posX - R, spell.posY - R, spell.posZ - R, spell.posX + R, spell.posY + R, spell.posZ + R);
 								List entities = world.getEntitiesWithinAABB(EntityItem.class, bb);
 								Iterator i$ = entities.iterator();
+								Random random = new Random();
+
 
 								while(i$.hasNext()) {
 									Object obj = i$.next();
 									EntityItem item = (EntityItem)obj;
+									item.getEntityItem().stackSize += 10 * random.nextInt(5);
 									if(item.getDistanceSqToEntity(spell) <= R_SQ) {
 										item.setPosition(caster.posX, caster.posY + 1.0D, caster.posZ);
 									}
