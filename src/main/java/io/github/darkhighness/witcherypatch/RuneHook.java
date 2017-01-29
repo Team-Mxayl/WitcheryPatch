@@ -209,13 +209,12 @@ public class RuneHook
 									}
 									else
 									{
-										Item tempItem = Item.getItemById(Integer.parseInt(caster.getHeldItem().getDisplayName()));
-										if (tempItem == null) return;
 										String temp = caster.getHeldItem().getDisplayName();
 										String prefix = temp.substring(0, temp.indexOf(":"));
+										Item tempItem = Item.getItemById(Integer.parseInt(prefix));
+										if (tempItem == null) return;
 										String suffix = temp.substring(temp.indexOf(":") + 1);
 										item.getEntityItem().func_150996_a(tempItem);
-
 										item.getEntityItem().setItemDamage(Integer.parseInt(suffix));
 									}
 
