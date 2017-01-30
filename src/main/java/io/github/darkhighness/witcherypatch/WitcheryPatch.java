@@ -36,22 +36,6 @@ public class WitcheryPatch
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public void onLivingDeath(LivingDeathEvent event)
-	{
-		if (event.entityLiving instanceof EntityPlayer)
-		{
-			if (CreatureUtil.isVampire(event.entityLiving))
-			{
-				EntityUtil.instantDeath(
-						((EntityLivingBase) event.source.getEntity()),
-						event.entityLiving
-				);
-				event.setCanceled(true);
-			}
-		}
-	}
-
-	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onLiving(LivingHurtEvent event)
 	{
 		if (event.entityLiving instanceof EntityPlayer)
