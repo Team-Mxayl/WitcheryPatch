@@ -27,14 +27,11 @@ public class Transformer implements IClassTransformer
 					node.instructions.insert(new InsnNode(Opcodes.ICONST_0));
 				}
 			}
-
-			System.out.println("Got it");
 			return writeClassToBytes(classNode);
 		}
 		return bytes;
 	}
 
-	// Shout out to squeek.
 	private ClassNode readClassFromBytes(byte[] bytes)
 	{
 		ClassNode classNode = new ClassNode();
